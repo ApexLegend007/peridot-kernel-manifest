@@ -61,10 +61,16 @@ repo sync -c --no-tags --no-clone-bundle -j$(nproc)
 | kernel_xiaomi_sm8650-modules | `vendor` | ApexLegend007 | `main` |
 | platform/system/tools/mkbootimg | `tools/mkbootimg` | AOSP | `android14-release` |
 
-**Not managed by repo** (set up by `build.sh`):
-- `prebuilts/clang/host/linux-x86/clang-r487747c` — downloaded as tarball from AOSP
+**Not managed by repo** (set up by `build.sh` Step 4):
+- `prebuilts/clang/host/linux-x86/clang-r487747c` — downloaded as tarball from AOSP (~500 MB)
 - `tools/bazel` — Bazelisk binary downloaded from GitHub releases
-- `prebuilts/build-tools/path/` — machine-local tool symlinks created at build time
+- `prebuilts/build-tools/path/linux-x86/` — machine-local hermetic PATH symlinks
+- `prebuilts/build-tools/linux-x86/bin/` — tool symlinks (bison, flex, etc.)
+- `prebuilts/build-tools/common/bison/` — symlink to system bison data
+- `prebuilts/build-tools/BUILD.bazel` — Bazel Python toolchain stub (generated)
+- `prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8/sysroot/` — host sysroot symlinks
+- `prebuilts/jdk/jdk11/linux-x86` — symlink to system JDK
+- `prebuilts/ndk-r23/` — minimal NDK stub
 
 ---
 
